@@ -1,4 +1,5 @@
 /** @jsx React.DOM */
+/*jslint node: true */
 'use strict';
 var React = require('react');
 var mui = require('material-ui');
@@ -32,8 +33,13 @@ var Hobby = React.createClass({
   render: function () {
     return (
       <li>
-        <TextField hintText="type your hobby" floatingLabelText={this.hobbyName()} valueLink={this.bindTo(this.props.model, "HobbyName")} />
-        <RaisedButton label="Delete" secondary={true} onClick={this.handleClick} />
+        <TextField hintText="type your hobby" 
+          floatingLabelText={this.hobbyName()} 
+          valueLink={this.bindTo(this.props.model, "HobbyName")} />
+        <RaisedButton 
+          label="Delete" 
+          secondary={true} 
+          onClick={this.handleClick} />
         <div>
           <strong>Frequency:</strong>
         </div>
@@ -164,10 +170,12 @@ var PrettyJson = React.createClass({
     var val = '<span class=json-value>';
     var str = '<span class=json-string>';
     var r = pIndent || '';
-    if (pKey)
-        r = r + key + pKey.replace(/[": ]/g, '') + '</span>: ';
-    if (pVal)
-        r = r + (pVal[0] == '"' ? str : val) + pVal + '</span>';
+    if (pKey){
+      r = r + key + pKey.replace(/[": ]/g, '') + '</span>: ';
+    }
+    if (pVal) {
+      r = r + (pVal[0] == '"' ? str : val) + pVal + '</span>';
+    }
     return r + (pEnd || '');
   },
   prettyPrint: function (obj) {

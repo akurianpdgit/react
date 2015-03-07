@@ -32725,6 +32725,7 @@ module.exports = require('./lib/React');
 module.exports=require('nakDgH');
 },{}],262:[function(require,module,exports){
 /** @jsx React.DOM */
+/*jslint node: true */
 'use strict';
 var React = require('react');
 var mui = require('material-ui');
@@ -32761,34 +32762,36 @@ var Hobby = React.createClass({displayName: "Hobby",
   },
   render: function () {
     return (
-        React.createElement("li", null, 
-            React.createElement(TextField, {hintText: "type your hobby", 
-              floatingLabelText: this.hobbyName(), 
-              valueLink: this.bindTo(this.props.model, 'HobbyName'), 
-              errorText: this.props.error.HobbyName.ErrorMessage}), 
-            React.createElement("br", null), 
-            React.createElement("br", null), 
-            React.createElement(RaisedButton, {label: "Delete", secondary: true, onClick: this.handleClick}), 
-            React.createElement("div", null, 
-              React.createElement("strong", null, "Frequency:")
-            ), 
-            React.createElement(RadioButtonGroup, {
-              name: this.frequencyName(), 
-              defaultSelected: this.frequency().value, 
-              onChange: this.handleChange}, 
-              React.createElement(RadioButton, {
-                value: "Daily", 
-                label: "Daily"}), 
-              React.createElement(RadioButton, {
-                value: "Weekly", 
-                label: "Weekly"}), 
-              React.createElement(RadioButton, {
-                value: "Monthly", 
-                label: "Monthly"})
-            ), 
-            React.createElement(CheckBoxInput, {label: "Is this a paid hobby?", model: this.bindTo(this.props.model, 'Paid')}), 
-            React.createElement(CheckBoxInput, {label: "Would you recommend this hobby to a friend?", model: this.bindTo(this.props.model, 'Recommendation')})
-        )
+      React.createElement("li", null, 
+        React.createElement(TextField, {hintText: "type your hobby", 
+          floatingLabelText: this.hobbyName(), 
+          valueLink: this.bindTo(this.props.model, 'HobbyName'), 
+          errorText: this.props.error.HobbyName.ErrorMessage}), 
+        React.createElement("br", null), 
+        React.createElement("br", null), 
+        React.createElement(RaisedButton, {label: "Delete", 
+          secondary: true, 
+          onClick: this.handleClick}), 
+        React.createElement("div", null, 
+          React.createElement("strong", null, "Frequency:")
+        ), 
+        React.createElement(RadioButtonGroup, {
+          name: this.frequencyName(), 
+          defaultSelected: this.frequency().value, 
+          onChange: this.handleChange}, 
+          React.createElement(RadioButton, {
+            value: "Daily", 
+            label: "Daily"}), 
+          React.createElement(RadioButton, {
+            value: "Weekly", 
+            label: "Weekly"}), 
+          React.createElement(RadioButton, {
+            value: "Monthly", 
+            label: "Monthly"})
+        ), 
+        React.createElement(CheckBoxInput, {label: "Is this a paid hobby?", model: this.bindTo(this.props.model, 'Paid')}), 
+        React.createElement(CheckBoxInput, {label: "Would you recommend this hobby to a friend?", model: this.bindTo(this.props.model, 'Recommendation')})
+      )
     );
   }
 });

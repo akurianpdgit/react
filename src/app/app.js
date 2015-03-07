@@ -1,4 +1,5 @@
 /** @jsx React.DOM */
+/*jslint node: true */
 'use strict';
 var React = require('react');
 var mui = require('material-ui');
@@ -35,34 +36,36 @@ var Hobby = React.createClass({
   },
   render: function () {
     return (
-        <li>
-            <TextField hintText='type your hobby' 
-              floatingLabelText={this.hobbyName()}
-              valueLink={this.bindTo(this.props.model, 'HobbyName')}
-              errorText={this.props.error.HobbyName.ErrorMessage} />
-            <br/>
-            <br/>
-            <RaisedButton label='Delete' secondary={true} onClick={this.handleClick} />
-            <div>
-              <strong>Frequency:</strong>
-            </div>
-            <RadioButtonGroup
-              name={this.frequencyName()}
-              defaultSelected={this.frequency().value}
-              onChange={this.handleChange}>
-              <RadioButton
-                value='Daily'
-                label='Daily' />
-              <RadioButton
-                value='Weekly'
-                label='Weekly' />
-              <RadioButton
-                value='Monthly'
-                label='Monthly' />
-            </RadioButtonGroup>
-            <CheckBoxInput label='Is this a paid hobby?' model={this.bindTo(this.props.model, 'Paid')} />
-            <CheckBoxInput label='Would you recommend this hobby to a friend?' model={this.bindTo(this.props.model, 'Recommendation')} />
-        </li>
+      <li>
+        <TextField hintText='type your hobby' 
+          floatingLabelText={this.hobbyName()}
+          valueLink={this.bindTo(this.props.model, 'HobbyName')}
+          errorText={this.props.error.HobbyName.ErrorMessage} />
+        <br/>
+        <br/>
+        <RaisedButton label='Delete' 
+          secondary={true} 
+          onClick={this.handleClick} />
+        <div>
+          <strong>Frequency:</strong>
+        </div>
+        <RadioButtonGroup
+          name={this.frequencyName()}
+          defaultSelected={this.frequency().value}
+          onChange={this.handleChange}>
+          <RadioButton
+            value='Daily'
+            label='Daily' />
+          <RadioButton
+            value='Weekly'
+            label='Weekly' />
+          <RadioButton
+            value='Monthly'
+            label='Monthly' />
+        </RadioButtonGroup>
+        <CheckBoxInput label='Is this a paid hobby?' model={this.bindTo(this.props.model, 'Paid')} />
+        <CheckBoxInput label='Would you recommend this hobby to a friend?' model={this.bindTo(this.props.model, 'Recommendation')} />
+      </li>
     );
   }
 });
